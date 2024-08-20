@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="ru" >
-<head>
-  <meta charset="UTF-8">
-  <title>Товаровед</title>  
-  <link rel="stylesheet" href="./style.css">
+{% extends 'appHomePage/base.html' %}
+{% load static %}
+{% block title %}Главная страница{% endblock %}
 
-</head>
-<body>
-
+{% block content %}
 <div class="container">
 	<div class="banner">
 		<h1>Товаровед</h1>
@@ -16,14 +11,15 @@
 	</div>
 	<div class="screen">
 		<div class="screen__content">
-			<form class="login">
+			<form class="login" id="FormAuth">
+                {% csrf_token %}
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" placeholder="Логин">
+					<input type="login" name="login" class="login__input" placeholder="Логин">
 				</div>
 				<div class="login__field">
 					<i class="login__icon fas fa-lock"></i>
-					<input type="password" class="login__input" placeholder="Пароль">
+					<input type="password" name="password" class="login__input" placeholder="Пароль">
 				</div>
 				<button class="button login__submit">
 					<span class="button__text">Войти</span>
@@ -32,6 +28,7 @@
 			</form>
 			<div class="social-login">
 				<h3>Регистрация</h3>				
+				<h3>Помощь</h3>				
 			</div>
 		</div>
 		<div class="screen__background">
@@ -42,6 +39,4 @@
 		</div>		
 	</div>
 </div>
-
-</body>
-</html>
+{% endblock %}
