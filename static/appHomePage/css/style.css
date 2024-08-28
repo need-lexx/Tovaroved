@@ -168,12 +168,6 @@ body {
 	outline: none;
 }
 
-.button__icon {
-	font-size: 24px;
-	margin-left: auto;
-	color: #7875B5;
-}
-
 .social-login {	
 	position: absolute;
 	height: 140px;
@@ -181,22 +175,15 @@ body {
 	text-align: center;
 	bottom: 0px;
 	right: 0px;
-	color: #fff;
+	color: #fff;	
 }
 
-.social-icons {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.social-login .link_reg {
+	text-decoration: none;
+	color: #FFF;
 }
 
-.social-login__icon {
-	padding: 20px 10px;
-	color: #fff;
-	text-decoration: none;	
-	text-shadow: 0px 0px 8px #7875B5;
+.social-login .link_reg:hover {
+	color:#534cdba2;
 }
 
-.social-login__icon:hover {
-	transform: scale(1.5);	
-}

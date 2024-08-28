@@ -27,7 +27,7 @@
 				</button>				
 			</form>
 			<div class="social-login">
-				<a href="{% url 'urlRegPage' %}"></a><h3>Регистрация</h3>				
+				<a href="{% url 'urlRegPage' %}" class="link_reg"><h3>Регистрация</h3></a>			
 				<h3>Помощь</h3>				
 			</div>
 		</div>
@@ -39,4 +39,30 @@
 		</div>		
 	</div>
 </div>
+<section style="margin-top: 38%; margin-bottom: 10px;"   class="container">
+	<div class="container__content">
+		 <h1 class="title">
+			  Новости
+			  <img src="{% static 'appHome/img/fire.svg' %}" alt="">                   
+		 </h1>
+		 <div class="news">
+			  {% for new in news %}
+			  <div class="card">
+				   {% if new.preview %}
+						 <img src="{{new.preview.url}}" alt="" class="preview">
+				   {% else %}      
+						<img src="{% static 'appHome/img/default.jpg' %}" alt="" class="preview">
+				   {% endif %}
+				   <h5>{{new.title}}</h5>
+				   <p>{{news.dtime}}</p>
+				   <a href="">
+						Читать
+						<img src="{% static 'appHome/img/read.svg' %}" alt="">
+				   </a>
+			  </div>                  
+			  {% endfor %}       
+		  
+		 </div>
+	</div>
+</section>
 {% endblock %}
