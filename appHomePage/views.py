@@ -19,10 +19,10 @@ class LogoutAccount(View):
         return ('urlPageHome')
     
 class AuthPage(View):
-    # def dispatch(self, request: HttpRequest, *args, **kwargs):
-    #     if not request.user.is_authenticated:
-    #         return super().dispatch(request, *args, **kwargs)
-    #     return redirect('urlPersonalAccount')
+    def dispatch(self, request: HttpRequest, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return super().dispatch(request, *args, **kwargs)
+        return redirect('urlPersonalAccount')
     def get(self, request):       
         return render(request, 'appHomePage/authorization/index.html')
     def post(self, request):   
@@ -63,11 +63,3 @@ class RegPage(View):
         
         
         
-# class PersonAccount (View):
-#     def dispatch(self, request: HttpRequest, *args, **kwargs) -> HttpResponse:
-#         if request.user.is_authenticated and request.user.is_active:
-#            return super().dispatch(request, *args, **kwargs)
-#         return redirect('urlPageHome')
-#     def get(self, request):
-#         return render(request, 'appAuthSite/account/index.html')
-    

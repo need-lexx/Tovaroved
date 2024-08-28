@@ -20,7 +20,7 @@ $(document).ready(()=>{
             },
             success: function(response){
                 if (response.status == 'success') {
-                    window.location.href = '/auth'
+                    window.location.href = '/'
                 }
             },
         })

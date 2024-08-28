@@ -15,11 +15,11 @@
                 {% csrf_token %}
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>
-					<input type="login" name="login" class="login__input" placeholder="Логин">
+					<input type="login" name="login" class="login__input" placeholder="Логин" required>
 				</div>
 				<div class="login__field">
 					<i class="login__icon fas fa-lock"></i>
-					<input type="password" name="password" class="login__input" placeholder="Пароль">
+					<input type="password" name="password" class="login__input" placeholder="Пароль" required>
 				</div>
 				<button class="button login__submit">
 					<span class="button__text">Войти</span>
@@ -27,7 +27,7 @@
 				</button>				
 			</form>
 			<div class="social-login">
-				<h3>Регистрация</h3>				
+				<a href="{% url 'urlRegPage' %}"></a><h3>Регистрация</h3>				
 				<h3>Помощь</h3>				
 			</div>
 		</div>
