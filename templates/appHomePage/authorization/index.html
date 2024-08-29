@@ -3,7 +3,7 @@
 {% block title %}Главная страница{% endblock %}
 
 {% block content %}
-<div class="container">
+<section class="container_auth">
 	<div class="banner">
 		<h1>Товаровед</h1>
 		<h2>Онлайн-склад</h2>
@@ -27,8 +27,9 @@
 				</button>				
 			</form>
 			<div class="social-login">
-				<a href="{% url 'urlRegPage' %}" class="link_reg"><h3>Регистрация</h3></a>			
-				<h3>Помощь</h3>				
+				<a href="{% url 'urlRegPage' %}">Регистрация</a>
+				<hr style="display:block; height: 15px; border: none;">			
+				<a href="#FormContact">Связаться с нами</a>				
 			</div>
 		</div>
 		<div class="screen__background">
@@ -38,31 +39,49 @@
 			<span class="screen__background__shape screen__background__shape1"></span>
 		</div>		
 	</div>
-</div>
-<section style="margin-top: 38%; margin-bottom: 10px;"   class="container">
-	<div class="container__content">
-		 <h1 class="title">
-			  Новости
-			  <img src="{% static 'appHome/img/fire.svg' %}" alt="">                   
-		 </h1>
+</section>
+
+<section class="container_news">
+	<h1 class="title">Последние обновления</h1>		 
+	<div class="container_news__content">
 		 <div class="news">
 			  {% for new in news %}
 			  <div class="card">
-				   {% if new.preview %}
-						 <img src="{{new.preview.url}}" alt="" class="preview">
-				   {% else %}      
-						<img src="{% static 'appHome/img/default.jpg' %}" alt="" class="preview">
-				   {% endif %}
-				   <h5>{{new.title}}</h5>
-				   <p>{{news.dtime}}</p>
-				   <a href="">
-						Читать
-						<img src="{% static 'appHome/img/read.svg' %}" alt="">
-				   </a>
+				   <div class="card__img">
+				       {% if new.preview %}
+					    	 <img src="{{new.preview.url}}" alt="" class="preview">
+				       {% else %}      
+					    	<img src="{% static 'appHome/img/default.jpg' %}" alt="" class="preview">
+				       {% endif %}
+				   </div>   
+				   <div class="card__content">
+				       <h5>{{new.title}}</h5>
+				       <p>{{news.dtime}}</p>
+					   <hr style="display:block; height: 25px; border: none;">
+				       <a href="">Подробнее...</a>
+				   </div>
 			  </div>                  
-			  {% endfor %}       
-		  
+			  {% endfor %} 		  
 		 </div>
 	</div>
+
+</section>
+<section class="container_contact">
+    <div class="container_contact__content">
+        <h1 class="title">Свяжитесь с нами</h1>
+        <div class="contact">
+            <p class="contact-text">
+                Мы готовы решить любую возникшую проблему
+            </p>
+            <form method="post" class="contact__form" id="FormContact">
+                {% csrf_token %}               
+                <input name="name" type="text" placeholder="Введите имя*" required>
+                <input name="email" type="email" placeholder="Введите почту*" required>
+                <input name="phone" type="tel" placeholder="Введите номер телефона*" required>
+                <textarea name="comment" placeholder="Оставьте комментарий"></textarea>
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+    </div>
 </section>
 {% endblock %}

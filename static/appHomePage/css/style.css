@@ -2,14 +2,15 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;	
-	font-family: Raleway, sans-serif;
+    font-family: Gilroy;	
 }
 
 body {
-	background: linear-gradient(90deg, #dcdaff, #8d82e7);		
+	background: #dfdfdf;
+	/* background: linear-gradient(90deg, #dcdaff, #8d82e7);		 */
 }
 
-.container {
+.container_auth {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -119,11 +120,11 @@ body {
 	position: relative;	
 }
 
-.login__icon {
+/* .login__icon {
 	position: absolute;
 	top: 30px;
 	color: #7875B5;
-}
+} */
 
 .login__input {
 	border: none;
@@ -168,22 +169,149 @@ body {
 	outline: none;
 }
 
-.social-login {	
+.social-login {		
 	position: absolute;
 	height: 140px;
-	width: 160px;
+	width: 200px;	
 	text-align: center;
 	bottom: 0px;
 	right: 0px;
-	color: #fff;	
+	color: #fff;
+
 }
 
-.social-login .link_reg {
+.social-login a {
 	text-decoration: none;
+	font-weight: 600;
+	font-size: 20px;	
 	color: #FFF;
+	height: 50px;	
 }
 
-.social-login .link_reg:hover {
+.social-login a:hover {
 	color:#534cdba2;
 }
 
+
+
+/*----------------------новостной блок-----------------------------*/
+.container_news{
+	width: 100%;
+	margin: 0 auto;
+}
+
+.container_news .title {
+	font-size: 32px;
+	text-align: center;	
+}
+
+.container_news__content {
+	width: 80%;
+	margin: 0 auto;		
+	background-color: #bcb9eb31;
+	border-radius: 20px;
+}
+
+.container_news .card {
+	display: flex;
+	align-items: center;	
+	border: 3px solid #736fac41;	
+	border-radius: 10px;	
+}
+
+.container_news .news {
+	padding: 10px;
+}
+
+.container_news .card .card__img {
+	width: 30%;
+}
+.card__img img {
+	width: 300px;
+}
+
+.container_news .card .card__content h5{
+	font-size: 20px;
+	font-weight: 500;	
+}
+
+.container_news .card .card__content a {
+	background-color: #85b69c;
+	padding: 7px 20px;
+	text-decoration: none;
+	border: none;
+	border-radius: 10px;
+	color: #FFF;
+	margin-top: 20px;
+}
+
+
+
+
+
+
+
+/*----------------------блок для обратной связи-----------------------------*/
+
+.container_contact{      
+    width: 100%;  
+}
+
+.container_contact__content {    
+    background-color: rgba(91, 90, 124, 0.877);    
+    padding: 20px;
+    margin: 0 auto;
+	margin-top: 20px;
+	box-shadow: 0px 0px 10px #5C5696;
+	border: none;
+}
+
+.contact {    
+    display: flex;
+    justify-content: space-between;
+}
+.contact-text {
+    font-size: 18px;    
+    margin: 0;
+	
+}
+
+.contact input::placeholder{
+	color: #bdbdbd;
+}
+
+.contact textarea::placeholder {
+	color: #bdbdbd;
+}
+
+.contact .contact__form {    
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+	width: 50%;	
+}
+
+.contact .contact__form input, textarea{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: 'Gilroy';
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    padding: 13px 20px;
+    outline: none;
+	
+}
+.contact .contact__form button {
+    width: 100%;
+    border: none;
+    padding: 15px 0;
+    border-radius: 10px;
+    background-color: #85b69c;
+    font-family: 'Gilroy';
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
