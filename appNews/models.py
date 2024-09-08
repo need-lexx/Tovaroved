@@ -2,12 +2,12 @@ from django.db import models
 
 class News(models.Model):
 
-    preview = models.ImageField (
-        "Изображение",
-        null=True,
-        blank=True,
-        upload_to='news'
-    ) 
+    # preview = models.ImageField (
+    #     "Изображение",
+    #     null=True,
+    #     blank=True,
+    #     upload_to='news'
+    # ) 
 
     title = models.CharField(
         "Название",

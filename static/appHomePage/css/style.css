@@ -192,17 +192,17 @@ body {
 	color:#534cdba2;
 }
 
-
-
 /*----------------------новостной блок-----------------------------*/
 .container_news{
 	width: 100%;
 	margin: 0 auto;
+	padding-bottom: 30px;
 }
 
 .container_news .title {
 	font-size: 32px;
 	text-align: center;	
+	margin-bottom: 20px;
 }
 
 .container_news__content {
@@ -210,39 +210,48 @@ body {
 	margin: 0 auto;		
 	background-color: #bcb9eb31;
 	border-radius: 20px;
+	padding: 0 30px;	
 }
 
 .container_news .card {
 	display: flex;
-	align-items: center;	
-	border: 3px solid #736fac41;	
-	border-radius: 10px;	
+	align-items: center;
+	justify-content: space-between;
+	margin: 20px 0;
 }
 
 .container_news .news {
 	padding: 10px;
 }
 
-.container_news .card .card__img {
-	width: 30%;
+.container_news .news hr{
+	margin-bottom: 20px;
 }
-.card__img img {
-	width: 300px;
-}
+
 
 .container_news .card .card__content h5{
 	font-size: 20px;
 	font-weight: 500;	
 }
 
-.container_news .card .card__content a {
-	background-color: #85b69c;
+.container_news .card .card__content p{
+	font-size: 15px;
+	margin-top: 10px;
+	color: #868686;		
+}
+
+.container_news .card a {
+	background-color: #76ad90;
 	padding: 7px 20px;
 	text-decoration: none;
 	border: none;
 	border-radius: 10px;
 	color: #FFF;
-	margin-top: 20px;
+	margin-right: 30px;	
+}
+
+.container_news .card a:hover{
+	background-color: #7E7BB9;
 }
 
 
@@ -251,67 +260,6 @@ body {
 
 
 
-/*----------------------блок для обратной связи-----------------------------*/
 
-.container_contact{      
-    width: 100%;  
-}
 
-.container_contact__content {    
-    background-color: rgba(91, 90, 124, 0.877);    
-    padding: 20px;
-    margin: 0 auto;
-	margin-top: 20px;
-	box-shadow: 0px 0px 10px #5C5696;
-	border: none;
-}
 
-.contact {    
-    display: flex;
-    justify-content: space-between;
-}
-.contact-text {
-    font-size: 18px;    
-    margin: 0;
-	
-}
-
-.contact input::placeholder{
-	color: #bdbdbd;
-}
-
-.contact textarea::placeholder {
-	color: #bdbdbd;
-}
-
-.contact .contact__form {    
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-	width: 50%;	
-}
-
-.contact .contact__form input, textarea{
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    border: none;
-    background: none;
-    font-family: 'Gilroy';
-    border: 1px solid #ffffff;
-    border-radius: 5px;
-    padding: 13px 20px;
-    outline: none;
-	
-}
-.contact .contact__form button {
-    width: 100%;
-    border: none;
-    padding: 15px 0;
-    border-radius: 10px;
-    background-color: #85b69c;
-    font-family: 'Gilroy';
-    font-weight: 600;
-    color: #fff;
-    cursor: pointer;
-}

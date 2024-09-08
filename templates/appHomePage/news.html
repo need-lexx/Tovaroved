@@ -1,0 +1,19 @@
+<section class="container_news">
+    <h1 class="title">Последние обновления</h1>
+    <div class="container_news__content">
+        <div class="news">
+            {% for new in news %}           
+            <div class="card">
+                <div class="card__content">
+                    <h5>{{new.title}}</h5>
+                    <p>{{new.dtime}}</p>
+                </div>
+                <a href="{% url 'urlNews' new.pk %}">Подробнее...</a>
+            </div>
+            {% if not forloop.last %}
+            <hr>           
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

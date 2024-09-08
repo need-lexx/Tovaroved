@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'appNews/css/pageNewsStyle.css' %}?version={% now 'H:i:s' %}">
+    <title>Наши обновления</title>
+</head>
+<body>
+    <header class="header">
+        <a href="{% url 'urlPageHome' %}">Начать работать</a>
+    </header>
+    <h2>{{title}}</h2>
+    <section class="container_news">        	 
+        <div class="container_news__content">
+             <div class="news">                                                     
+                  <div class="card">
+                       <!-- <div class="card__img">
+                         <img src="{{new.preview.url}}" alt="" class="preview">
+                       </div>    -->                       
+                       <div class="card__content">                           
+                           <p>{{desc|linebreaks}}</p>
+                           <p class="card__content-d_time">{{dtime}}</p>                                              
+                       </div>
+                  </div>    	  
+             </div>
+        </div>    
+    </section>
+    {% include 'footer.html' %}
+</body>
+</html>

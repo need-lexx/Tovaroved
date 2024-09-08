@@ -20,12 +20,16 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('summernote/', include('django_summernote.urls')),
-    path('account/', include('appAccountPage.urls')), 
+    path('admin/', admin.site.urls),    
+    path('warehouse/', include('appWarehouse.urls')),      
+    path('news/', include('appNews.urls')),     
     path('', include('appHomePage.urls')), 
 ]
 
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    
+ 
+admin.site.site_header = "Панель администрирования"
+admin.site.index_title = "Система управления остатками"
