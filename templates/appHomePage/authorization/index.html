@@ -13,17 +13,14 @@
 		<div class="screen__content">
 			<form class="login" id="FormAuth">
                 {% csrf_token %}
-				<div class="login__field">
-					<i class="login__icon fas fa-user"></i>
+				<div class="login__field">					
 					<input type="login" name="login" class="login__input" placeholder="Логин" required>
 				</div>
-				<div class="login__field">
-					<i class="login__icon fas fa-lock"></i>
+				<div class="login__field">					
 					<input type="password" name="password" class="login__input" placeholder="Пароль" required>
 				</div>
 				<button class="button login__submit">
-					<span class="button__text">Войти</span>
-					<i class="button__icon fas fa-chevron-right"></i>
+					<span class="button__text">Войти</span>					
 				</button>				
 			</form>
 			<div class="social-login">

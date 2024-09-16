@@ -4,12 +4,55 @@
 
 {% block content %}
 {% include "appWarehouse/header.html" %}
-    <h1 class="title">Личный кабинет</h1>
-    <section class="container">
-        <div class="container__content">
-            <a href="{% url 'urlAddProduct' %}">Добавить товар</a>
-        </div>
-    </section>   
+<h1 class="title">Личный кабинет</h1>
+<section class="container">
+  <div class="container__content">
+    <div class="addproduct_link">
+      <button id="updateButton">Обновить</button>
+      <div>
+        <a href="{% url 'urlIncomeProduct' %}">Приход</a>
+        <a href="{% url 'urlExpenseProduct' %}">Расход</a>
+        <a href="{% url 'urlAddProduct' %}">Добавить товар</a>
+      </div>
+    </div>
+    <div class="table_product">
+      <table class="table_product__content">
+        <tr>
+          <th class="table_title">Название</th>
+          <th class="table_article">Артикул</th>
+          <th class="table_price">Цена</th>
+          <th class="table_quantity">Кол-во</th>
+          <th class="table_warehouse">Склад</th>
+        </tr>
+        <tr>
+          <td>Лаваш</td>
+          <td>lavash54</td>
+          <td>50</td>
+          <td>45</td>
+          <td>Климовск</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</section>
 
 {% include "footer.html" %}
+
+<script>
+  $(document).ready(() => {
+
+    $("#updateButton").click(function () {
+      $.ajax({
+        type: "GET",
+        success: function (response) {
+          console.log(response)
+        },
+        error: function (err) {
+          console.log(err)
+        }
+      })
+    })
+  })
+
+</script>
 {% endblock %}

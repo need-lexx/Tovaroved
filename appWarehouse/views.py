@@ -14,6 +14,16 @@ class PersonAccount (View):
         return redirect('urlPageHome')
 
     def get(self, request):
+        
+        # products = Product.objects.all() 
+       
+        
+        # for product in products:
+        #     Product.objects.filter().values('id', 'title', 'article', 'price')
+        #     print(product.title)
+            
+            
+             
         return render(request, 'appWarehouse/index.html')
 
 
@@ -37,3 +47,11 @@ def addProduct(request):
 class AddWarehouse (View):
     def get(self, request):
         return render(request, 'appWarehouse/addwarehouse.html')
+    
+class IncomeProduct (View):
+    def get(self, request):
+        return render(request, 'appWarehouse/income_product.html')
+    
+class ExpenseProduct (View):
+    def get(self, request):
+        return render(request, 'appWarehouse/expense_product.html')
