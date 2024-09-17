@@ -1,0 +1,24 @@
+{% extends 'appWarehouse/base.html' %}
+{% load static %}
+{% block title %}Товар{% endblock %}
+
+{% block content %}
+{% include "appWarehouse/header.html" %}
+<h2>{{title}}</h2>
+<section class="container_news">        	 
+    <div class="container_news__content">
+         <div class="news">                                                     
+              <div class="card">                     
+                   <div class="card__content">  
+                       <p>{{article}}</p>
+                       <p>{{price}}</p>
+                       <p>{{count}}</p>
+                       <p>{{description}}</p>
+                   </div>
+              </div>    	  
+         </div>
+    </div>    
+</section>
+
+{% include "footer.html" %}
+{% endblock %}

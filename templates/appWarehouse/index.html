@@ -8,7 +8,7 @@
 <section class="container">
   <div class="container__content">
     <div class="addproduct_link">
-      <button id="updateButton">Обновить</button>
+      <button id="updateButton" href="{% url 'urlAddProduct' %}">Обновить</button>
       <div>
         <a href="{% url 'urlIncomeProduct' %}">Приход</a>
         <a href="{% url 'urlExpenseProduct' %}">Расход</a>
@@ -16,21 +16,21 @@
       </div>
     </div>
     <div class="table_product">
-      <table class="table_product__content">
+      <table class="table_product__content" cellpadding="0" cellspacing="0" >
         <tr>
           <th class="table_title">Название</th>
           <th class="table_article">Артикул</th>
           <th class="table_price">Цена</th>
-          <th class="table_quantity">Кол-во</th>
-          <th class="table_warehouse">Склад</th>
+          <th class="table_count">Кол-во</th>          
         </tr>
-        <tr>
-          <td>Лаваш</td>
-          <td>lavash54</td>
-          <td>50</td>
-          <td>45</td>
-          <td>Климовск</td>
+        {% for pd in products %}
+        <tr class="table_product__content-tr">
+          <td><a href="{% url 'urlProduct' pd.pk %}">{{pd.title}}</a></td>
+          <td><a href="{% url 'urlProduct' pd.pk %}">{{pd.article}}</td></a>
+          <td class="table_price"><a href="{% url 'urlProduct' pd.pk %}">{{pd.price}}</td></a>
+          <td class="table_count"><a href="{% url 'urlProduct' pd.pk %}">{{pd.count}}</td></a>       
         </tr>
+        {% endfor %}
       </table>
     </div>
   </div>

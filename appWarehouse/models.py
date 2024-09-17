@@ -23,6 +23,7 @@ class Warehouse(models.Model):
         verbose_name = 'склад'
         verbose_name_plural = 'Склады'
         
+        
 class Product(models.Model): 
     
     title = models.CharField (
@@ -49,18 +50,26 @@ class Product(models.Model):
     
     barcode = models.FileField (
         verbose_name="Баркод",
-        upload_to = "barcode/",
+        upload_to = "barcode/%Y/%m/%d/",
         blank=True,
         null=True,
     )
        
     description = models.TextField(
-        verbose_name='Описание', 
+        verbose_name='Описание',
+        default='-',)
+    
+    count = models.IntegerField(
+        verbose_name='Количество',  
+        default=0,)
+    
+    image = models.ImageField(
+        verbose_name='Изображение',
+        upload_to='image_products/%Y/%m/%d/', 
         null=True, 
         blank=True, 
-        default='')
-    
-    
+        )    
+     
     warehouse = models.ManyToManyField(
         Warehouse, 
         verbose_name = 'Склад',
