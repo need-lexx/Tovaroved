@@ -1,0 +1,16 @@
+#header, .module caption {
+    background: #7e7bb9e3;
+}
+
+
+div.breadcrumbs {
+    background: #5b598b;
+}
+
+html[data-theme="light"], :root  {
+    --accent: #fff;
+    --link-fg: #424164;
+    --object-tools-bg: #7e7bb9e3;
+    --object-tools-hover-bg:#5b598b;
+    --header-bg:#424164;
+}

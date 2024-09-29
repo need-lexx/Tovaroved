@@ -26,7 +26,8 @@ class News(models.Model):
         "Дата и время",
         null=False,
         blank=False,
-        auto_now_add=True
+        auto_now_add=True,
+      
     )
 
     status = models.BooleanField(

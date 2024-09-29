@@ -1,8 +1,20 @@
-{% extends 'appHomePage/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block title %}Главная страница{% endblock %}
 
 {% block content %}
+<style>
+    .container_contact {
+        position: relative;
+    }
+	.login {
+    padding-top: 156px;
+	}
+
+	.footer {
+	position: relative;
+    }
+</style>
 <section class="container_auth">
 	<div class="banner">
 		<h1>Товаровед</h1>
@@ -11,22 +23,22 @@
 	</div>
 	<div class="screen">
 		<div class="screen__content">
-			<form class="login" id="FormAuth">
-                {% csrf_token %}
-				<div class="login__field">					
-					<input type="login" name="login" class="login__input" placeholder="Логин" required>
-				</div>
-				<div class="login__field">					
-					<input type="password" name="password" class="login__input" placeholder="Пароль" required>
-				</div>
+			<form action="" method="POST" enctype="multipart/form-data" id="FormAuth" class="login">
+				{% csrf_token %}				
+				<div class="form-error">{{ form.non_field_errors }}</div>
+				{% for f in form %}
+				<div class="login__field"><label for="form-label" for="{{ f.id_for_label }}">{{ f.label }}</label>{{ f }}</div>
+				<div class="form-error">{{ f.errors }}</div>
+				{% endfor %}				
 				<button class="button login__submit">
 					<span class="button__text">Войти</span>					
-				</button>				
+				</button>
 			</form>
+
 			<div class="social-login">
 				<a href="{% url 'urlRegPage' %}">Регистрация</a>
 				<hr style="display:block; height: 15px; border: none;">			
-				<a href="#FormContact">Связаться с нами</a>				
+				<a href="{% url 'urlRecSupport' %}">Связаться с нами</a>				
 			</div>
 		</div>
 		<div class="screen__background">

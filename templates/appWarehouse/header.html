@@ -1,7 +1,8 @@
 <header class="header">
     <div class="header__content">
         <a href="{% url 'urlPersonalAccount' %}">Личный кабинет</a>
-        <a href="#FormContact">Помощь</a>
+        <a href="{% url 'urlAll_news' %}">Новости</a>
+        <a href="{% url 'urlRecSupport' %}">Помощь</a>       
         <a href="{% url 'urlLogoutAccount' %}">Выход из личного кабинета</a>
     </div>
 </header>

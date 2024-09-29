@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'font/stylesheet.css' %}">
+    <link rel="stylesheet" href="{% static 'appHomePage/css/apphome_style.css' %}?version={% now 'H:i:s' %}">    
+    <link rel="stylesheet" href="{% static 'appWarehouse/css/appwarehouse_style.css' %}?version={% now 'H:i:s' %}">        
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    {% block content %}{% endblock %}
+    <script src="{% static 'libraries/Jquery.js' %}"></script>
+    {% block js %}
+    <script src="{% static 'appSupport/js/contactForm.js' %}"></script>     
+    <script src="{% static 'appWarehouse/js/coming.js' %}"></script>   
+    {% endblock %}
+</body>
+</html>

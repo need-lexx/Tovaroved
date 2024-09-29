@@ -1,100 +1,28 @@
 <style>
-    .container_contact {
-        width: 100%;
-        position: absolute;                
-    }
+    .footer {
+	width: 100%;
+	height: 80px;
+	background: #7E7BB9;
+	margin: 0 auto;
+}
 
-    .container_contact__content {
-        background-color: #635BA7;
-        padding: 20px;
-        margin: 0 auto;
-        margin-top: 20px;
-        border: none;
-    }
 
-    .container_contact__content .title {
-        text-align: center;
-        color: #ffffff;
-        margin-bottom: 20px;
-    }
 
-    .contact {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
 
-    .contact-text {
-        font-size: 18px;
-        margin: 0;
-        text-align: center;
-        width: 40%;
-        color: #ffffff;
-        padding: 0 20px 0 40px;
-        
-    }
+.footer__content {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #FFF;
+	height: 100%;
 
-    .contact input::placeholder {
-        color: #ffffff;
-    }
+}
+</style>  
 
-    .contact textarea::placeholder {
-        color: #ffffff;
-    }
 
-    .contact .contact__form {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        width: 50%;
-    }
 
-    .contact .contact__form input,
-    textarea {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        border: none;
-        background: none;
-        font-family: 'Gilroy';
-        border: 1px solid #ffffff;
-        border-radius: 5px;
-        padding: 13px 20px;
-        outline: none;
-    }
-
-    .contact .contact__form button {
-        width: 100%;
-        border: none;
-        padding: 15px 0;
-        border-radius: 10px;
-        background-color: #76ad90;
-        font-family: 'Gilroy';
-        font-weight: 600;
-        color: #fff;
-        cursor: pointer;        
-    }
-
-    .contact .contact__form button:hover {
-        background-color: #7E7BB9;
-    }
-</style>
-
-<section class="container_contact">
-    <div class="container_contact__content">
-        <h1 class="title">Свяжитесь с нами</h1>
-        <div class="contact">
-            <p class="contact-text">
-                Мы ценим ваше мнение и хотим сделать наш сайт ещё лучше. Пожалуйста, поделитесь своими впечатлениями от использования нашего ресурса. Расскажите, что вам понравилось, а что вызвало затруднения. Ваши отзывы помогут нам улучшить работу сайта и сделать его более удобным для вас.
-            </p>
-            <form method="post" class="contact__form" id="FormContact">
-                {% csrf_token %}
-                <input name="name" type="text" placeholder="Введите имя*" required>
-                <input name="email" type="email" placeholder="Введите почту*" required>
-                <input name="phone" type="tel" placeholder="Введите номер телефона*" required>
-                <textarea name="comment" placeholder="Оставьте комментарий"></textarea>
-                <button type="submit">Отправить</button>
-            </form>
-        </div>
+<section class="footer">
+    <div class="footer__content">
+        <p>©2024 Товаровед</p>
     </div>
 </section>

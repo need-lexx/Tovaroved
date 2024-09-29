@@ -1,24 +1,52 @@
-{% extends 'appWarehouse/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block title %}Товар{% endblock %}
 
 {% block content %}
 {% include "appWarehouse/header.html" %}
+<style>
+     .footer {
+          bottom: 0;
+     }
+</style>
 <h2>{{title}}</h2>
-<section class="container_news">        	 
-    <div class="container_news__content">
-         <div class="news">                                                     
-              <div class="card">                     
-                   <div class="card__content">  
-                       <p>{{article}}</p>
-                       <p>{{price}}</p>
-                       <p>{{count}}</p>
-                       <p>{{description}}</p>
-                   </div>
-              </div>    	  
-         </div>
-    </div>    
+<section class="container_main" style="min-height: 100vh;">
+<section class="container__product" >
+     <div class="container__product__content">
+          <h1 class="title">{{product.title}}</h1>
+          <div class="container__product__content-top">
+               <div class="card__content-img"><img src="{{product.image.url}}" alt=""></div>
+               <div class="card__content-text">
+                    <div class="card__content-text_p">
+                    <p><span>Артикул:</span> {{product.article}}</p>
+                    <p><span>Цена:</span> {{product.price}}</p>
+                    <p><span>Кол-во:</span> {{product.count}}</p>
+                    </div>
+                    <div class="disc_block"> <span>Описание:</span> {{ product.description|default:"-" }}</div>
+                    <a class='' href="{% url 'urlChangeData' product.pk %}">Изменить данные</a>
+               </div>
+               
+          </div>
+          
+         
+     </div>
 </section>
+<div class="change__product__content">
+     <h2 class="title">Приход | Расход</h2>
+     <form method="post">
+          {% csrf_token %}
 
+          <p><label class="form-label" for="{{ form.quantity.id_for_label }}">{{form.quantity.label}}: </label>{{ form.quantity }}</p>
+          <div class="form-error">{{ form.quantity.errors }}</div>
+
+          <p><label class="form-label" for="{{ form.action.id_for_label }}">{{form.action.label}}:
+               </label>{{form.action}}</p>
+          <div class="form-error">{{ form.action.errors }}</div>
+          <button type="submit">Отправить</button>
+     </form>
+
+
+</div>
+</section>
 {% include "footer.html" %}
 {% endblock %}

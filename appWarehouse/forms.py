@@ -1,21 +1,24 @@
 from django import forms
 from .models import Product, Warehouse
+from django.contrib.auth.models import User
 
 
-class AddProductForm(forms.ModelForm):
-    
+class AddProductForm(forms.ModelForm):     
     class Meta:
       model = Product
-      fields = ['title', 'article', 'price', 'image', 'barcode', 'description',]
+      fields = ['title', 'article', 'price', 'count', 'image', 'description']
+      
+      
+
+class ChangeProductCount(forms.Form):  
+    quantity = forms.IntegerField(label="Введите количество",)
+    action = forms.ChoiceField(label="Действие", choices=[('increase', 'Приход'), ('decrease', 'Расход')])
     
     
-    # title= forms.CharField(max_length=255, label="Наименование")
-    # article=forms.CharField(max_length=50, label="Артикул")
-    # price=forms.IntegerField(required=False, label="Цена")
-    # barcode=forms.FileField(required=False, label="Баркод")
-    # description=forms.CharField(widget=forms.Textarea(), required=False, label="Описание")
-    # image=forms.ImageField(required=False, label="Изображение")
-    # warehouse = forms.ModelChoiceField(queryset=Warehouse.objects.all(), empty_label="Не выбрано", label="Склад")
     
+    # widget=forms.NumberInput(attrs={'id':"exampleInputNumber", 'class':"animated-input"})
+ 
+    
+
   
     

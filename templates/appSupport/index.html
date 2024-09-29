@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Обратная связь{% endblock %}
+
+{% block content %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'appSupport/css/appsupport_style.css' %}?version={% now 'H:i:s' %}"> 
+{% endblock %}
+<header class="header">
+    <a href="{% url 'urlPageHome' %}">Начать работать</a>
+    <a href="{% url 'urlAll_news' %}">Все новости</a>
+    <a href="{% url 'urlRecSupport' %}">Помощь</a>
+</header>
+<section class="container_contact">
+    <div class="container_contact__content">
+        <h1 class="title">Свяжитесь с нами</h1>
+        <div class="contact">
+            <form method="post" class="contact__form" id="FormContact">
+                {% csrf_token %}
+                <input name="name" type="text" placeholder="Введите имя*" required>
+                <input name="email" type="email" placeholder="Введите почту*" required>
+                <input name="phone" type="tel" placeholder="Введите номер телефона*" required>
+                <textarea name="comment" placeholder="Оставьте комментарий"></textarea>
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% include 'footer.html' %}
+{% endblock %}

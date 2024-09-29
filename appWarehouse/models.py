@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Warehouse(models.Model):
     
@@ -65,7 +66,8 @@ class Product(models.Model):
     
     image = models.ImageField(
         verbose_name='Изображение',
-        upload_to='image_products/%Y/%m/%d/', 
+        upload_to='image_products/%Y/%m/%d/',
+        default='image_products/noimage.png', 
         null=True, 
         blank=True, 
         )    
@@ -75,8 +77,19 @@ class Product(models.Model):
         verbose_name = 'Склад',
         blank=True,
         null=True,
-        )
+        )    
+    
+    user = models.ForeignKey('auth.User',
+                             verbose_name="Пользователь",
+                             on_delete=models.CASCADE)    
+  
+  
+    def save(self, *args, **kwargs):
+        if self.count == 0:
+            raise ValueError("Невозможно сохранить продукт с нулевым остатком")
+        super().save(*args, **kwargs)
 
+  
     def __str__(self):
         return self.title
 
@@ -85,5 +98,15 @@ class Product(models.Model):
         verbose_name_plural = 'Товары'
         ordering = ['title']
     
+    
+class CountRecord(models.Model):    
+    
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    action = models.CharField(max_length=10, choices=(('in', 'Приход'), ('out', 'Расход')))
+    quantity = models.PositiveIntegerField()
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.product}: {self.action} {self.quantity} шт."   
     
            

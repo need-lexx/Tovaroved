@@ -1,23 +1,21 @@
-{% extends 'appWarehouse/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block title %}Личный кабинет{% endblock %}
-
 {% block content %}
 {% include "appWarehouse/header.html" %}
+
 <h1 class="title">Личный кабинет</h1>
 <section class="container">
   <div class="container__content">
-    <div class="addproduct_link">
-      <button id="updateButton" href="{% url 'urlAddProduct' %}">Обновить</button>
-      <div>
-        <a href="{% url 'urlIncomeProduct' %}">Приход</a>
-        <a href="{% url 'urlExpenseProduct' %}">Расход</a>
-        <a href="{% url 'urlAddProduct' %}">Добавить товар</a>
-      </div>
-    </div>
+
     <div class="table_product">
+      <div class="addproduct_link"> 
+        <a href="{% url 'urlAddProduct' %}">Добавить товар</a>
+    </div>
       <table class="table_product__content" cellpadding="0" cellspacing="0" >
+
         <tr>
+          <th class="table_title">Изображение</th>
           <th class="table_title">Название</th>
           <th class="table_article">Артикул</th>
           <th class="table_price">Цена</th>
@@ -25,6 +23,7 @@
         </tr>
         {% for pd in products %}
         <tr class="table_product__content-tr">
+          <td class="table_image"><a href="{% url 'urlProduct' pd.pk %}"><img src='{{pd.image.url}}' width=50></a></td>
           <td><a href="{% url 'urlProduct' pd.pk %}">{{pd.title}}</a></td>
           <td><a href="{% url 'urlProduct' pd.pk %}">{{pd.article}}</td></a>
           <td class="table_price"><a href="{% url 'urlProduct' pd.pk %}">{{pd.price}}</td></a>
@@ -37,22 +36,4 @@
 </section>
 
 {% include "footer.html" %}
-
-<script>
-  $(document).ready(() => {
-
-    $("#updateButton").click(function () {
-      $.ajax({
-        type: "GET",
-        success: function (response) {
-          console.log(response)
-        },
-        error: function (err) {
-          console.log(err)
-        }
-      })
-    })
-  })
-
-</script>
 {% endblock %}

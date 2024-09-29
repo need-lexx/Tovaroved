@@ -7,5 +7,5 @@ class NewsAdmin(admin.ModelAdmin):
     list_display = ["id", "title", "dtime", "status"]
     list_display_links = ["id", "title", "dtime"]  
     list_filter = ['dtime', 'status']
-    search_fields = ["title"]
-    summernote_fields = ["desc"]
+    search_fields = ["title"]    
+    list_per_page = 20
