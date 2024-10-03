@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from .forms import AddProductForm, ChangeProductCount
 from .models import Product
-from django.views.generic import CreateView, TemplateView, UpdateView
+from django.views.generic import CreateView, TemplateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.core.exceptions import ValidationError
 from django.contrib import messages
@@ -67,6 +67,16 @@ class ChangeData (UpdateView):
      def get_success_url(self):
              product_id = self.object.id
              return reverse_lazy('urlProduct', kwargs={'pk': product_id})
-     
+         
+class DeleteProduct (DeleteView):
+    model = Product
+    template_name = 'appWarehouse/delete_product.html' 
+    success_url = reverse_lazy('urlPersonalAccount')
+    context_object_name = 'product' 
+            
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = f'Удаление товара: {self.object.title}'
+        return context 
     
     

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Добавление товара{% endblock %}
+
+{% block content %}
+{% include "appWarehouse/header.html" %}
+
+<style>
+.maseage_block{  
+    font-size: 20px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    height: 100px;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: rgba(243, 166, 138, 0.856);
+
+}
+
+.btn_block {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.btn_block button{
+    background-color: #76ad90;
+	padding: 5px 15px;
+	text-decoration: none;
+	border: none;
+	border-radius: 10px;
+	color: #FFF;
+	margin-right: 30px;
+	font-size: 15.5px;
+}
+
+.btn_block a {
+    background-color: #76ad90;
+	padding: 5px 15px;
+	text-decoration: none;
+	border: none;
+	border-radius: 10px;
+	color: #FFF;
+}
+
+.btn_block button:hover {
+    background-color: #7E7BB9;
+}
+
+.btn_block a:hover {
+	background-color: #7E7BB9;
+}
+
+
+</style>
+
+<h1 class="title">Удаление товара</h1>
+<section class="container">
+    <div class="container__content">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="maseage_block">
+                <p>Вы собираетесь удалить товар: <strong>{{ product.title }}</strong>,
+                вы подтверждаете свое действие?</p>
+            </div>
+            <div class="btn_block">
+                <button type="submit" class="btn btn-dark">Удалить товар</button>
+                <a href="{% url 'urlProduct' product.pk %}" class="btn btn-primary">Отменить удаление</a>
+            </div>
+           
+        </form>
+    </div>
+</section>
+
+{% include "footer.html" %}
+{% endblock %}

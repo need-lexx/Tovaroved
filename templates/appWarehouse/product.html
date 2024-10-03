@@ -23,7 +23,8 @@
                     <p><span>Кол-во:</span> {{product.count}}</p>
                     </div>
                     <div class="disc_block"> <span>Описание:</span> {{ product.description|default:"-" }}</div>
-                    <a class='' href="{% url 'urlChangeData' product.pk %}">Изменить данные</a>
+                    <a class='' href="{% url 'urlChangeData' product.pk %}">Изменить данные</a>              
+                    <a class='' href="{% url 'urlDeleteProduct' product.pk %}">Удалить товар</a>              
                </div>
                
           </div>
